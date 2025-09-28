@@ -22,6 +22,7 @@
       - [**3.4 Analogi HTML dan CSS**](#34-analogi-html-dan-css)
       - [**3.5 Selektor CSS**](#35-selektor-css)
       - [**3.6 Contoh Kode**](#36-contoh-kode)
+    - [**4. Etika Web Scraping**](#4-etika-web-scraping)
     - [**Referensi**](#referensi)
 
 ---
@@ -434,6 +435,35 @@ CSS seperti dekorasi mobil atau rumah, yang menentukan estetika seperti cat, fur
     <a href="https://example.com">Kunjungi Situs Ini</a>
 </body>
 </html>
+```
+
+### **4. Etika Web Scraping**
+Web scraping melibatkan pengumpulan data dari situs web secara otomatis. Tetapi, Web scrapping harus dilakukan dengan mempertimbangkan aspek etis dan legal untuk menghindari pelanggaran. Berdasarkan buku *Practical Web Scraping for Data Science* oleh Broucke dan Baesens, etika scraping mencakup prinsip-prinsip berikut:
+
+-   **Karakteristik:**
+    -   Hormati hak cipta dan ketentuan layanan situs (Terms of Service).
+    -   Hindari scraping data pribadi atau sensitif tanpa izin (sesuai GDPR atau regulasi).
+    -   Gunakan teknik yang tidak membebani server, seperti rate limiting (e.g., delay 1-2 detik antar request).
+-   **Contoh Best Practices:**
+    -   Periksa file `robots.txt` situs untuk aturan crawling (e.g., disallowed paths).
+    -   Gunakan user-agent headers untuk identifikasi sebagai scraper etis, bukan bot malicious.
+    -   Jika memungkinkan, gunakan API resmi situs daripada scraping langsung.
+    -   Kasus hukum: Lihat putusan LinkedIn vs. hiQ (2017), di mana scraping data publik diizinkan tapi dengan batasan.
+
+-   **Contoh Check Robots.txt:**
+```python
+import requests
+
+url = 'https://www.google.com/robots.txt'
+response = requests.get(url)
+# response = requests.get(url, timeout=5)  # Tambah timeout untuk hindari hang
+print(f"Status Code: {response.status_code}")
+print("\n--- Konten robots.txt ---")
+print(response.text[:300])  # Cetak bagian awal
+if response.status_code == 200:
+    print("\nPeriksa aturan: Cari 'Disallow' untuk path terlarang.")
+else:
+    print("Tidak ada robots.txt atau error akses.")
 ```
 
 ### **Referensi**
