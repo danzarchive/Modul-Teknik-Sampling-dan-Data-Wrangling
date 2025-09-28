@@ -1,0 +1,6 @@
+{
+    "nama": "Ranggo",
+    "usia": 20,
+    "program_studi": "Sains Data",
+    "mata_kuliah": ["Data Wrangling", "Pemodelan Statistika", "Data Warehouse"]
+}

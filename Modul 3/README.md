@@ -137,7 +137,7 @@ TXT adalah format teks sederhana untuk data unstructured, seperti log atau dokum
 
 -   **Karakteristik:**
     -   Tidak ada struktur bawaan, mudah dibaca tapi butuh processing manual.
--   **Praktik dengan Python:**
+
 ```python
 # Membaca file TXT dari direktori
 with open('data.txt', 'r', encoding='utf-8') as file:
@@ -149,7 +149,6 @@ print(text[:200])  # Cetak 200 karakter pertama
 
 - **Contoh Data:** Unduh sample TXT dari [Project Gutenberg - Alice's Adventures in Wonderland](https://www.gutenberg.org/files/11/11-0.txt) (file: 11-0.txt).
 
--   **Praktik dengan Python:**
 ```python
 try:
     # Membaca file TXT dari direktori
@@ -278,7 +277,7 @@ print("\n--- Data dari YAML ---")
 print(data)
 ```
 
-- **Contoh Data:** Unduh sample YAML dari [GitHub - Docker Compose Sample](https://raw.githubusercontent.com/docker/awesome-compose/master/nginx-go/docker-compose.yaml) (simpan sebagai docker-compose.yaml).
+- **Contoh Data:** Unduh sample YAML dari [GitHub - Docker Compose Sample](https://github.com/docker/awesome-compose/blob/master/nginx-golang/compose.yaml) (simpan sebagai docker-compose.yaml).
 
 ```python
 import yaml
@@ -329,20 +328,17 @@ print(text[:200])  # Cetak 200 karakter pertama
 ```python
 import PyPDF2
 
-try:
-    # Membaca file PDF dari direktori
-    with open('fw9.pdf', 'rb') as file:
-        reader = PyPDF2.PdfReader(file)
-        text = ''
-        for page in reader.pages:
-            text += page.extract_text() + '\n'
+with open('fw9.pdf', 'rb') as file:
+    reader = PyPDF2.PdfReader(file)
+    text = ''
+    for page in reader.pages:
+        text += page.extract_text() + '\n'
     
-    print("\n--- Data dari PDF ---")
-    print(text[:200])  # Cetak 200 karakter pertama
+    # Akses metadata di dalam with
+    print("\n--- Data dari PDF (Basic) ---")
+    print(text[:200])
     print(f"\nJumlah halaman: {len(reader.pages)}")
     print(f"\nMetadata: {reader.metadata}")
-except FileNotFoundError:
-    print("File PDF tidak ditemukan. Pastikan 'fw9.pdf' ada di direktori.")
 ```
 
 -   **Teknik Ekstraksi PDF Lanjutan:**  
