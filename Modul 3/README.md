@@ -17,12 +17,11 @@
       - [**2.7 Membaca File PDF**](#27-membaca-file-pdf)
     - [**3. Pengantar HTML dan CSS**](#3-pengantar-html-dan-css)
       - [**3.1 Pengantar HTML**](#31-pengantar-html)
-      - [**3.2 Analogi HTML**](#32-analogi-html)
-      - [**3.3 Elemen Dasar HTML**](#33-elemen-dasar-html)
-      - [**3.4 Pengantar CSS**](#34-pengantar-css)
-      - [**3.5 Analogi CSS**](#35-analogi-css)
-      - [**3.6 Selektor CSS**](#36-selektor-css)
-      - [**3.7 Contoh Kode**](#37-contoh-kode)
+      - [**3.2 Elemen Dasar HTML**](#32-elemen-dasar-html)
+      - [**3.3 Pengantar CSS**](#33-pengantar-css)
+      - [**3.4 Analogi HTML dan CSS**](#34-analogi-html-dan-css)
+      - [**3.5 Selektor CSS**](#35-selektor-css)
+      - [**3.6 Contoh Kode**](#36-contoh-kode)
     - [**Referensi**](#referensi)
 
 ---
@@ -399,32 +398,29 @@ except FileNotFoundError:
 ### **3. Pengantar HTML dan CSS**
 
 #### **3.1 Pengantar HTML**
-HTML (*HyperText Markup Language*) merupakan bahasa standar untuk membangun halaman web. Ini menentukan isi dan organisasi dokumen, seperti judul, paragraf, tautan, dan gambar. HTML menggunakan tag untuk mendefinisikan elemen, memungkinkan browser menampilkan konten secara terstruktur.
+HTML (*HyperText Markup Language*) merupakan bahasa untuk website. HTML menggunakan tag untuk mendefinisikan elemen, memungkinkan browser menampilkan konten secara terstruktur.
 
-#### **3.2 Analogi HTML**
-HTML mirip dengan fondasi bangunan, yang menyediakan kerangka utama seperti pondasi, kolom, dan atap (misalnya, tag `<body>`, `<header>`, `<section>`).  
-![Analogi HTML sebagai Fondasi Bangunan](https://www.pexels.com/photo/construction-site-with-crane-and-building-159306/)  
-*(Sumber: Pexels - Gambar konstruksi situs bangunan).*
-
-#### **3.3 Elemen Dasar HTML**
+#### **3.2 Elemen Dasar HTML**
 - **Tag Dasar:** `<html>`, `<head>`, `<body>`.
 - **Elemen Konten:** `<h1>` untuk heading, `<p>` untuk paragraf, `<a>` untuk link, `<img>` untuk gambar.
 - **Atribut:** Menambahkan properti, seperti `src` pada `<img>` atau `href` pada `<a>`.
 
-#### **3.4 Pengantar CSS**
-CSS (*Cascading Style Sheets*) adalah bahasa untuk mengendalikan penampilan halaman web. Ini memisahkan desain dari konten HTML, memungkinkan pengaturan warna, font, tata letak, dan responsivitas melalui aturan yang diterapkan secara berjenjang.
+#### **3.3 Pengantar CSS**
+CSS (*Cascading Style Sheets*) adalah bahasa untuk tampilan atau interface website. Memisahkan desain dari konten HTML yang dapat mengatur warna, font, tata letak, dan responsivitas.
 
-#### **3.5 Analogi CSS**
-CSS seperti dekorasi rumah, yang menentukan estetika seperti cat dinding, furnitur, dan pencahayaan (misalnya, `background-color: white; margin: 10px;`).  
-![Analogi CSS sebagai Dekorasi Rumah](https://www.pexels.com/photo/modern-living-room-interior-1571460/)  
-*(Sumber: Pexels - Gambar interior ruang tamu modern).*
+#### **3.4 Analogi HTML dan CSS**
+HTML dapat dianalogikan dengan kerangka mobil atau fondasi bangunan, yang mana sebagai kerangka utama seperti pondasi, kolom, dan atap (misalnya, tag `<body>`, `<header>`, `<section>`).  
+CSS seperti dekorasi mobil atau rumah, yang menentukan estetika seperti cat, furnitur, dan pencahayaan (misalnya, `background-color: white; margin: 10px;`).  
 
-#### **3.6 Selektor CSS**
+![Analogi HTML dan CSS](https://v1.scrimba.com/articles/content/images/2022/11/image-1.png)  
+*(Sumber: Scrimba).*
+
+#### **3.5 Selektor CSS**
 - **Selektor Elemen:** Menerapkan gaya ke tag spesifik, seperti `p { color: black; }`.
 - **Selektor Class/ID:** `.kelas { font-size: 14px; }` atau `#id { border: 1px solid; }`.
 - **Selektor Kompleks:** Kombinasi seperti `div p { margin: 5px; }` untuk elemen anak.
 
-#### **3.7 Contoh Kode**
+#### **3.6 Contoh Kode**
 ```html
 <!DOCTYPE html>
 <html lang="id">
@@ -447,3 +443,4 @@ CSS seperti dekorasi rumah, yang menentukan estetika seperti cat dinding, furnit
 ### **Referensi**
 - Broucke, S., & Baesens, B. (2018). *Practical Web Scraping for Data Science: Best Practices and Examples with Python*. Apress.
 - Kazil, J., & Jarmul, K. (2016). *Data Wrangling with Python: Tips and Tools to Make Your Life Easier*. O'Reilly Media.
+- Scrimba, https://v1.scrimba.com/articles/html-css-javascript/
