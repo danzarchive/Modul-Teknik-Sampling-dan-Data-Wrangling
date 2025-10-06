@@ -350,6 +350,60 @@ if weather_df is not None:
     print(weather_df.head())
 ```
 
+```python
+import requests
+import pandas as pd
+from datetime import datetime
+
+def fetch_bmkg_weather_api(adm4_code, location_name):
+    url = f"https://api.bmkg.go.id/publik/prakiraan-cuaca?adm4={adm4_code}"
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+    
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        data = response.json()
+        
+        # Periksa struktur: data['data'][0]['cuaca'][0][0] untuk forecast pertama
+        if 'data' in data and data['data'] and data['data'][0].get('cuaca') and data['data'][0]['cuaca'][0]:
+            forecast = data['data'][0]['cuaca'][0][0]  # Forecast pertama (hari ini, slot awal)
+            return {
+                'city': location_name,
+                'weather_condition': forecast.get('weather_desc', 'N/A'),
+                'temperature': f"{forecast.get('t', 'N/A')}°C",
+                'humidity': f"{forecast.get('hu', 'N/A')}%",
+                'wind_speed': f"{forecast.get('ws', 'N/A')} km/jam",
+                'datetime': forecast.get('local_datetime', 'N/A'),
+                'scraped_at': datetime.now().isoformat()
+            }
+        else:
+            print(f"Tidak ada data cuaca untuk {location_name}")
+            return None
+    except Exception as e:
+        print(f"Error untuk {location_name}: {e}")
+        return None
+
+# Daftar kota besar dengan kode adm4 (verifikasi dari sumber resmi BMKG)
+cities = {
+    "31.71.03.1001": "Kemayoran, Jakarta Pusat",      # Jakarta
+    "12.71.02.1001": "Medan Maimun, Medan",            # Medan
+    "73.11.01.1001": "Maros, Makassar"                 # Makassar
+}
+
+weather_data = []
+for code, name in cities.items():
+    result = fetch_bmkg_weather_api(code, name)
+    if result:
+        weather_data.append(result)
+
+df = pd.DataFrame(weather_data)
+if not df.empty:
+    print(f"Data cuaca untuk {len(df)} kota (diperbarui {datetime.now().strftime('%Y-%m-%d %H:%M')})")
+    print(df[['city', 'weather_condition', 'temperature', 'humidity', 'wind_speed', 'datetime']].to_string(index=False))
+else:
+    print("Gagal mengambil data untuk semua kota")
+```
+
 ### Case 3: Scraping Data Saham dari Yahoo Finance
 
 ```python
