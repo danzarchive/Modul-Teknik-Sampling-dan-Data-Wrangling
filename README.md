@@ -10,3 +10,7 @@ Modul praktikum untuk mata kuliah **Teknik Sampling dan Data Wrangling** di Prod
 -   **Modul 4:** Web scraping, Scrapping Parsing dan API
 -   **Modul 5:** Cleaning dan Preprocessing (Missing value, Outlier, Duplicate, Formating)
 -   **Modul 6:** Transformasi dan Eksplorasi Data (Standardisasi, Normalisasi, Exploratory Data Analysis (EDA))
+
+## Link Drive untuk Video Pembelajaran
+
+https://drive.google.com/drive/folders/15Oj4dOrl1i2o9_3b58P8SGs7QHamS2QR 
